@@ -1,0 +1,10 @@
+# Ignore Go binaries
+bin/
+pkg/
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+
+# Ignore Go module files
+go.sum
