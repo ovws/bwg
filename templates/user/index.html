@@ -1,0 +1,19 @@
+{{define "user/index.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}}</title>
+</head>
+<body>
+    <h1>用户中心</h1>
+    <p>你好，{{.user.Name}}，你的年龄是{{.user.Age}}岁。</p>
+
+
+    <p>{{len .title}}</p>
+    <p>{{.date}}</p>
+    <p>{{UnixToTime .date}}</p>
+</body>
+</html>
+{{end}}
