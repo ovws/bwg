@@ -30,6 +30,9 @@ func main() {
 	})
 
 	r.LoadHTMLGlob("templates/**/*")
+
+	r.Static("/static", "./templates/static")
+
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Hello World!")
 	})
