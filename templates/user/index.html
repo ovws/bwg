@@ -1,4 +1,6 @@
 {{define "user/index.html"}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +9,16 @@
     <title>{{.title}}</title>
 </head>
 <body>
-    <h1>用户中心</h1>
+    {{template "public/page_header.html" .}}
+    <h3>用户中心</h3>
     <p>你好，{{.user.Name}}，你的年龄是{{.user.Age}}岁。</p>
 
 
     <p>{{len .title}}</p>
     <p>{{.date}}</p>
     <p>{{UnixToTime .date}}</p>
+    {{TextLn .title .user.Name}}
+    {{template "public/page_footer.html" .}}
 </body>
 </html>
 {{end}}

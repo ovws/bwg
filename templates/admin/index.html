@@ -1,4 +1,5 @@
 {{define "admin/index.html"}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <title>{{.title}}</title>
 </head>
 <body>
+    {{template "public/page_header.html" .}}
     <p>Admin Page</p>
     <p>你好，{{.admin.Name}}，你的年龄是{{.admin.Age}}岁。</p>
     {{if ge .admin.Age 18}}
@@ -29,6 +31,6 @@
     {{with .admin}}
         <p>用户{{.Name}}的年龄是{{.Age}}岁，ta的个人邮箱是：{{.Email}}</p>
     {{end}}
-
+    {{template "public/page_footer.html" .}}
 </html>
 {{end}}

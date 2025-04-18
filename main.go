@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"text/template"
 	"time"
@@ -13,10 +14,19 @@ func UnixToTime(timeStamp int) string {
 	return t.Format("2006-01-02 15:04:05")
 }
 
+func TextLn(str1 string, str2 string) string {
+	fmt.Println(str1, str2)
+
+	// 我想要返回 str1 + str2的值要怎么写？
+	// 你可以直接返回 str1 + str2
+	return str1 + " ---- " + str2
+}
+
 func main() {
 	r := gin.Default()
 	r.SetFuncMap(template.FuncMap{
 		"UnixToTime": UnixToTime,
+		"TextLn":     TextLn,
 	})
 
 	r.LoadHTMLGlob("templates/**/*")
@@ -140,7 +150,7 @@ func main() {
 		elon := User{
 			Name:  "Elon",
 			Age:   18,
-			Email: "elon@163.com",
+			Email: "Elon@163.com",
 		}
 		c.HTML(http.StatusOK, "user/index.html", gin.H{
 			"title": "User",
