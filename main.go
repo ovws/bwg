@@ -28,7 +28,7 @@ func main() {
 		"UnixToTime": UnixToTime,
 		"TextLn":     TextLn,
 	})
-
+	fmt.Println("Hello World!")
 	r.LoadHTMLGlob("templates/**/*")
 
 	r.Static("/static", "./templates/static")
