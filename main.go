@@ -29,9 +29,9 @@ func main() {
 		"TextLn":     TextLn,
 	})
 	fmt.Println("Hello World!")
-	r.LoadHTMLGlob("templates/**/*")
+	r.LoadHTMLGlob("templates/**/*.html")
 
-	r.Static("/static", "./templates/static")
+	r.Static("/tmp", "./templates/static")
 
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Hello World!")
