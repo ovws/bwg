@@ -7,19 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.title}}</title>
-    <link rel="stylesheet" href="/tmp/css/base.css">
+    <!-- <link rel="stylesheet" href="/tmp/css/base.css"> -->
 </head>
 <body>
-    {{template "public/page_header.html" .}}
-    <h3>用户中心</h3>
-    <p>你好，{{.user.Name}}，你的年龄是{{.user.Age}}岁。</p>
-
-
-    <p>{{len .title}}</p>
-    <p>{{.date}}</p>
-    <p>{{UnixToTime .date}}</p>
-    {{TextLn .title .user.Name}}
-    {{template "public/page_footer.html" .}}
+    <form action="/doau" method="post">
+        用户名：<input type="text" name="name" /><br><br>
+        密码: <input type="password" name="password"><br><br>
+        <input type="submit" value="提交">
+    </form>
 </body>
 </html>
 {{end}}

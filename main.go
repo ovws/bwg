@@ -33,9 +33,37 @@ func main() {
 
 	r.Static("/tmp", "./templates/static")
 
-	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello World!")
+	r.GET("/hqid", func(c *gin.Context) {
+		// name := c.Query("name")
+		// password := c.Query("password")
+		id := c.DefaultQuery("id", "1")
+
+		c.JSON(http.StatusOK, gin.H{
+			// "name":     name,
+			// "password": password,
+			// "page":     page,
+			"id":      id,
+			"message": "获取ID!",
+		})
+		// c.String(http.StatusOK, "Hello World!")
 	})
+
+	r.GET("/user", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "user/index.html", gin.H{})
+	})
+
+	r.POST("/doau", func(c *gin.Context) {
+		name := c.PostForm("name")
+		password := c.PostForm("password")
+		age := c.DefaultPostForm("age", "18")
+
+		c.JSON(http.StatusOK, gin.H{
+			"name":     name,
+			"password": password,
+			"age":      age,
+			"message":  "提交成功!"})
+	})
+
 	r.GET("/test", func(c *gin.Context) {
 		c.String(200, "There is test page!")
 	})
@@ -148,18 +176,18 @@ func main() {
 		})
 	})
 
-	r.GET("/user", func(c *gin.Context) {
+	// r.GET("/user", func(c *gin.Context) {
 
-		elon := User{
-			Name:  "Elon",
-			Age:   18,
-			Email: "Elon@163.com",
-		}
-		c.HTML(http.StatusOK, "user/index.html", gin.H{
-			"title": "User",
-			"user":  elon,
-			"date":  1744707155,
-		})
-	})
+	// 	elon := User{
+	// 		Name:  "Elon",
+	// 		Age:   18,
+	// 		Email: "Elon@163.com",
+	// 	}
+	// 	c.HTML(http.StatusOK, "user/index.html", gin.H{
+	// 		"title": "User",
+	// 		"user":  elon,
+	// 		"date":  1744707155,
+	// 	})
+	// })
 	r.Run(":8080")
 }

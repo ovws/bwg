@@ -10,11 +10,19 @@
 <body>
     {{template "public/page_header.html" .}}
     <p>Admin Page</p>
+    
     <p>你好，{{.admin.Name}}，你的年龄是{{.admin.Age}}岁。</p>
     {{if ge .admin.Age 18}}
         <p>你成年了</p>
     {{else}}
         <p>你还没成年</p>
+    {{end}}
+    {{if eq .admin.Name "张三"}}
+        <p>欢迎张三</p>
+    {{else if eq .admin.Name "李四"}}
+        <p>欢迎李四</p>
+    {{else}}
+        <p>欢迎其他人</p>
     </body>
     {{end}}
 <!-- 遍历 -->
